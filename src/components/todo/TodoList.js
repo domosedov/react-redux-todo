@@ -29,7 +29,7 @@ const TodoList = ({todos}) => {
     if (todos.length > 0) {
         return (
             <>
-                <h1 className={'title'}>Todo List</h1>
+                <h1 className={'title'}>Список задач</h1>
                 <ul className={"todo__list"}>
                     {todos.map(todo => <Todo
                         key={todo.id}

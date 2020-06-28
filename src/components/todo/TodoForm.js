@@ -25,7 +25,7 @@ const TodoForm = () => {
                 onChange={e => setTodoText(e.target.value)}
                 className={'todo__input'}
             />
-            <button type="submit" className={"todo__add"}>Add Todo</button>
+            <button type="submit" className={"todo__add"}>Добавить</button>
         </form>
     )
 
