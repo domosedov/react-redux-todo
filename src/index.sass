@@ -6,68 +6,96 @@
   padding: 0
   font-family: 'Jura', sans-serif
 
+body
+  max-width: 1200px
+  margin: auto
 
 .todo__list
-  width: 50vw
-  margin: auto
+  padding: 0 1em
   display: flex
   flex-direction: column
   align-items: stretch
 
 .todo__item
   display: flex
-  align-items: center
+  //align-items: center
   justify-content: space-between
   padding: 0.5em
   background-color: lightblue
   border-radius: 0.2em
-  margin-bottom: 0.5em
-  box-shadow: 0 0 5px 0 black
+  margin-bottom: 0.7em
+  box-shadow: 0 0 3px 0 black
   &--completed
     background-color: peachpuff
-    & > p
-    text-decoration: line-through
+    .todo__text
+      text-decoration: line-through
+
+
 
 .todo__actions
   display: flex
 
 .todo__button
-  width: 4em
-  height: 4em
+  background-color: darkslategray
   cursor: pointer
-  border: 1px solid transparent
+  border: 2px solid transparent
   border-radius: 100%
   display: flex
   align-items: center
   justify-content: center
+  min-height: 3em
+  min-width: 3em
+  box-shadow: 0 0 3px 0 darkslategray
   svg
     width: 2em
     height: 2em
+  &:focus
+    outline: none
+    box-shadow: 0 0 1px 3px cornflowerblue
 
 .todo__button + .todo__button
   margin-left: 0.5em
 
 .todo__button--complete
-  background-color: yellow
-  transition: 0.5s
+  svg
+    color: greenyellow
+  &:hover
+    background-color: ghostwhite
+    border-color: green
+    transition: 0.5s
+    svg
+      color: green
 
 .todo__button--delete
-  background-color: crimson
-  color: white
+  svg
+    color: crimson
+  &:hover
+    background-color: ghostwhite
+    border-color: red
+    transition: 0.5s
+    svg
+      color: red
 
 .todo__button--edit
-  background-color: lightcyan
-  color: darkblue
+  svg
+    color: darkorange
+  &:hover
+    background-color: ghostwhite
+    border-color: darkorange
+    transition: 0.5s
+    svg
+      color: darkorange
 
 .title
   text-align: center
-  margin: 1em auto
+  margin: .5em auto
+  text-transform: uppercase
 
 .todo__form
+  padding: 0 1em
   display: flex
   align-items: center
   flex-direction: column
-  width: 50vw
   margin: auto
 
 .todo__filters
@@ -79,19 +107,53 @@
 
 .todo__filter, .todo__add
   cursor: pointer
+  font-size: 1.2em
   padding: 0.5em 1em
   background-color: cornflowerblue
-  border: none
+  border: 2px solid transparent
   border-radius: 0.2em
   color: white
+  box-shadow: 0 0 2px 0px darkslategray
+  &:hover
+    background-color: ghostwhite
+    color: darkslategray
+    border-color: darkslategray
+    transition: 0.5s
+  &:focus
+    outline: none
+    box-shadow: 0 0 1px 3px darkslategray
 
 .todo__filter + .todo__filter
   margin-left: 0.5em
 
+.todo__filter--active
+  background-color: lightgrey
+  color: darkslategray
+  border-color: darkslategray
+  cursor: not-allowed
+
 .todo__input
   margin-bottom: 1em
-  border: 1px solid cornflowerblue
+  border: 2px solid cornflowerblue
   padding: 0.5em
-  width: 50%
+  width: 100%
   height: 5em
-  box-shadow: 0 0 10px 0 black
+  box-shadow: 0 0 1px 0 black
+
+.todo__edit
+  display: block
+  width: 100%
+  margin-right: 0.5em
+
+.todo__text--change
+  resize: none
+  display: block
+  border: none
+  background-color: inherit
+  font-size: 1em
+  width: 100%
+  height: 100%
+  &:focus
+    outline: none
+    background-color: white
+    box-shadow: 0 0 1px 0 darkslategray

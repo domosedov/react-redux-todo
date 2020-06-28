@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 export const filters = {
-    SHOW_ALL: 'SHOW_ALL',
-    SHOW_COMPLETED: 'SHOW_COMPLETED',
-    SHOW_ACTIVE: 'SHOW_ACTIVE'
+    SHOW_ALL: 'SHOW ALL',
+    SHOW_COMPLETED: 'SHOW COMPLETED',
+    SHOW_ACTIVE: 'SHOW ACTIVE'
 }
 
 const visibilityFilterSlice = createSlice({

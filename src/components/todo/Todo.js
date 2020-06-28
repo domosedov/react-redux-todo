@@ -39,9 +39,8 @@ const Todo = ({text, id, completed, handleToggle, handleDelete}) => {
           <form
             className={'todo__edit'}
             onSubmit={changeTodo}>
-            <input
+            <textarea
               className={'todo__text--change'}
-              type={text}
               value={todoText}
               onChange={e => setTodoText(e.target.value)}
               onBlur={changeTodo}

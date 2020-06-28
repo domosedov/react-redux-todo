@@ -1,8 +1,9 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {toggleTodo, deleteTodo} from './todoSlice';
 import Todo from "./Todo";
-import {setFilter} from "./visibilitySlice";
+import {setFilter, filters, selectVisibilityFilter} from "./visibilitySlice";
+import FilterButton from "./FilterButton";
 
 const TodoList = ({todos}) => {
     const dispatch = useDispatch();
@@ -13,6 +14,16 @@ const TodoList = ({todos}) => {
 
     const handleDelete = (todoId) => {
         dispatch(deleteTodo(todoId));
+    }
+
+    const currentFilter = useSelector(selectVisibilityFilter);
+    
+    const buttons = [];
+    
+    for (let key in filters) {
+      buttons.push(
+        <FilterButton key={key} buttonText={filters[key]} clickHandler={() => dispatch(setFilter(filters[key]))} active={filters[key] === currentFilter} />
+      )
     }
 
     if (todos.length > 0) {
@@ -30,9 +41,7 @@ const TodoList = ({todos}) => {
                     />)}
                 </ul>
                 <div className={'todo__filters'}>
-                  <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_ALL'))}>SHOW ALL</button>
-                  <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_ACTIVE'))}>SHOW ACTIVE</button>
-                  <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_COMPLETED'))}>SHOW COMPLETED</button>
+                  {buttons}
                 </div>
             </>
         )
@@ -41,9 +50,7 @@ const TodoList = ({todos}) => {
             <>
               <h1 className={'title'}>Задач нет</h1>
               <div className={'todo__filters'}>
-                <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_ALL'))}>SHOW ALL</button>
-                <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_ACTIVE'))}>SHOW ACTIVE</button>
-                <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_COMPLETED'))}>SHOW COMPLETED</button>
+                {buttons}
               </div>
             </>
         )
