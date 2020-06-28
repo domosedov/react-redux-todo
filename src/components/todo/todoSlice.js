@@ -2,10 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const todoSlice = createSlice({
     name: 'todo',
-    initialState: [
-        {id: 'asd', text: 'todo1', completed: false},
-        {id: 'asdsaf', text: 'todo2', completed: true}
-    ],
+    initialState: [],
     reducers: {
         addTodo: (state, action) => {
             state.push(action.payload);
@@ -19,6 +16,10 @@ export const todoSlice = createSlice({
             if (idx >= 0) {
                 state.splice(idx, 1);
             }
+        },
+        editTodo: (state, action) => {
+            const todo = state.find(item => item.id === action.payload.id);
+            todo.text = action.payload.text;
         }
 
     },
@@ -26,7 +27,7 @@ export const todoSlice = createSlice({
 
 const {reducer: todoReducer, actions} = todoSlice;
 
-export const { addTodo, toggleTodo, deleteTodo } = actions;
+export const { addTodo, toggleTodo, deleteTodo, editTodo } = actions;
 
 export const selectTodos = state => state.todo;
 

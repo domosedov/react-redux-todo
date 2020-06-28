@@ -14,6 +14,7 @@ const TodoList = ({todos}) => {
     const handleDelete = (todoId) => {
         dispatch(deleteTodo(todoId));
     }
+
     if (todos.length > 0) {
         return (
             <>
@@ -28,19 +29,23 @@ const TodoList = ({todos}) => {
                         handleDelete={handleDelete}
                     />)}
                 </ul>
-                <button onClick={() => dispatch(setFilter('SHOW_ALL'))}>SHOW ALL</button>
-                <button onClick={() => dispatch(setFilter('SHOW_ACTIVE'))}>SHOW ACTIVE</button>
-                <button onClick={() => dispatch(setFilter('SHOW_COMPLETED'))}>SHOW COMPLETED</button>
+                <div className={'todo__filters'}>
+                  <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_ALL'))}>SHOW ALL</button>
+                  <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_ACTIVE'))}>SHOW ACTIVE</button>
+                  <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_COMPLETED'))}>SHOW COMPLETED</button>
+                </div>
             </>
         )
     } else {
         return (
             <>
-            <h1 className={'title'}>Задач нет</h1>
-                <button onClick={() => dispatch(setFilter('SHOW_ALL'))}>SHOW ALL</button>
-                <button onClick={() => dispatch(setFilter('SHOW_ACTIVE'))}>SHOW ACTIVE</button>
-                <button onClick={() => dispatch(setFilter('SHOW_COMPLETED'))}>SHOW COMPLETED</button>
-                </>
+              <h1 className={'title'}>Задач нет</h1>
+              <div className={'todo__filters'}>
+                <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_ALL'))}>SHOW ALL</button>
+                <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_ACTIVE'))}>SHOW ACTIVE</button>
+                <button className={'todo__filter'} onClick={() => dispatch(setFilter('SHOW_COMPLETED'))}>SHOW COMPLETED</button>
+              </div>
+            </>
         )
     }
 

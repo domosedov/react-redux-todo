@@ -20,13 +20,12 @@ const TodoForm = () => {
             className={'todo__form'}
             onSubmit={handleSubmit}
         >
-            <input
-                type="text"
+            <textarea
                 value={todoText}
                 onChange={e => setTodoText(e.target.value)}
                 className={'todo__input'}
             />
-            <button type="submit" className={"todo__button"}>Add Todo</button>
+            <button type="submit" className={"todo__add"}>Add Todo</button>
         </form>
     )
 
