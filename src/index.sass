@@ -1,0 +1,65 @@
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+
+.todo__list
+  width: 50vw
+  margin: auto
+  display: flex
+  flex-direction: column
+  align-items: stretch
+
+.todo__item
+  text-transform: uppercase
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 0.5em
+  background-color: lightblue
+  border-radius: 0.2em
+  margin-bottom: 0.5em
+  box-shadow: 0 0 5px 0 black
+  &--completed
+    background-color: peachpuff
+    & > p
+    text-decoration: line-through
+
+.todo__actions
+  display: flex
+
+.todo__button
+  width: 4em
+  height: 4em
+  cursor: pointer
+  border: 1px solid transparent
+  border-radius: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  svg
+    width: 2em
+    height: 2em
+
+.todo__button + .todo__button
+  margin-left: 0.5em
+
+.todo__button--complete
+  background-color: yellow
+  transition: 0.5s
+
+.todo__button--delete
+  background-color: crimson
+  color: white
+
+.title
+  text-align: center
+  margin: 1em auto
+
+.todo__form
+  display: flex
+  align-items: center
+  flex-direction: column
+  width: 50vw
+  margin: auto
